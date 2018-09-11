@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0;padding:0;}
+	li{list-style: none;}
+	ul{
+		display: inline-block;
+		position:relative;
+		left:600px;
+		top:400px;
+		box-sizing:border-box;
+		width:200px;
+		height:200px;
+		transform-style: preserve-3d;
+		transform:perspective(400px) rotatex(0deg) rotatey(45deg);
+		animation: mymove 5s cubic-bezier(0.0,0.0,0.0,0.0) infinite forwards;
+	}
+	@-webkit-keyframes mymove{
+		from{
+			transform:perspective(400px) rotatex(0deg) rotatey(0deg);;
+			/*opacity: 0;*/
+		}
+		to{
+			transform:perspective(400px) rotatex(360deg) rotatey(360deg);
+		/*	opacity: 1;*/
+		}
+	}
+	ul:hover{
+		transform:perspective(400px);
+		animation: mymove 5s cubic-bezier(0.0,0.0,0.0,0.0) infinite paused forwards;		
+	}
+	ul li{
+		position: absolute;
+		top:0;
+		left:0;
+		width: 200px;
+		height:200px;
+		font-size: 60px;
+		text-align: center;
+		line-height: 200px;
+	}
+	ul li:first-child{
+		background: red;
+		transform:translateX(-100px) rotateY(90deg);
+	}
+	ul li:nth-child(2){
+		background:yellow;
+		transform:translateX(100px) rotateY(90deg);
+	}
+	ul li:nth-child(3){
+		background:green;
+		transform:translateY(100px) rotateX(90deg)
+	}
+    ul li:nth-child(4){
+        background-color: lightblue;
+        transform: translateY(-100px) rotateX(90deg);
+    }
+    ul li:nth-child(5){
+        background-color: purple;
+        transform: translateZ(-100px);
+    }
+    ul li:nth-child(6){
+        background-color: pink;
+        transform: translateZ(100px);
+    }
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+</body>
+</html>
